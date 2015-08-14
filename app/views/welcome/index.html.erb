@@ -1,0 +1,40 @@
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="<%= asset_path('hellosign-logo.png') %>">
+    </a>
+    <h1>HelloSign Embedded Templates</h1>
+    <p>Register an account to use the HelloSign API to create, edit, preview and send signature requests from the embedded templates.</p>
+    <%= link_to ('<span class="glyphicon glyphicon-flash"></span>Register for Account').html_safe, new_user_registration_path, class: "btn btn-lg btn-default" %>
+  </div>
+</div>
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-info-sign"></span> How this example app works</h3>
+      <ol>
+        <li>Register an account.</li>
+        <li>Create a template.</li>
+        <li>Preview & Send a Template.</li>
+      </ol>
+    </div>
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-link"></span>Why HelloSign?</h3>
+      <ul>
+        <li><a href="https://www.hellosign.com/api/documentation/">Clear API Docs with implementation examples.</a></li>
+        <li><a href="https://www.hellosign.com/api/pricing">SDKs are available in most languages.</a></li>
+        <li><a href="https://www.hellosign.com/api/libraries#Official">The API Pricing is "no mystery" obvious.</a></li>
+        <li><a href="https://www.hellosign.com/info/legal">HelloSign eSignatures are legally binding.</a></li>
+        <li><a href="https://www.hellosign.com/info/security">HelloSign is Secure.</a></li>
+
+      </ul>
+    </div>
+  </div> <!-- row -->
+  <hr>
+  <div class="alert alert-info text-center" role="alert">
+	  This application is made possible by the HelloSign Team.
+	  <br> Learn More about:
+	  <a href="https://www.hellosign.com/" class="alert-link">HelloSign</a> | <a href="https://www.hellosign.com/api" class="alert-link">The HelloSign API</a> | <a href="http://info.hellosign.com/demo.html" class="alert-link">Schedule a Demo</a>
+  </div>
+</div>
