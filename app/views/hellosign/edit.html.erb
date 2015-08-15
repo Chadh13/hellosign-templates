@@ -1,0 +1,16 @@
+<body class='blue_form'>
+
+<script type="text/javascript" src="//s3.amazonaws.com/cdn.hellofax.com/js/embedded.js"></script>
+
+<script type="text/javascript">
+  HelloSign.init("<%= ENV['HELLOSIGN_CLIENT_ID'] %>");
+  HelloSign.open({ url: '<%= @template.edit_url %>' });
+</script>
+
+<br><br><br><br><br><br>
+
+<h1>
+<%= link_to 'Back to Templates', @template, class: 'back_to_templates' %>
+</h1>
+
+</body>

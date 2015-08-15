@@ -1,24 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class='container'>
 
-<p>
-  <strong>Title:</strong>
-  <%= @template.title %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @template.subject %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @template.title %>
+  </p>
 
-<p>
-  <strong>Message:</strong>
-  <%= @template.message %>
-</p>
+  <p>
+    <strong>Subject:</strong>
+    <%= @template.subject %>
+  </p>
 
-<p>
-  <strong>File:</strong>
-  <%= @template.file %>
-</p>
+  <p>
+    <strong>Message:</strong>
+    <%= @template.message %>
+  </p>
 
-<%= link_to 'Edit', edit_template_path(@template) %> |
-<%= link_to 'Back', templates_path %>
+  <p>
+    <strong>File:</strong>
+    <%= @template.file %>
+  </p>
+
+  <div class='buttons'>
+    <%= link_to 'Finish Creating Template', hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
+    <%= link_to 'Edit this Template', edit_hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
+    <%= link_to 'Send Signature Request with this Template', edit_hellosign_path(@template), class: 'btn btn-md btn-primary' %>
+
+    <br><br>
+    <!-- <%= link_to 'Edit this Template', edit_template_path(@template) %> | -->
+    <%= link_to 'Back to Templates List', templates_path %>
+  </div>
+
+</div>

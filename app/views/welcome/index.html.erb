@@ -5,22 +5,26 @@
     </a>
     <h1>HelloSign Embedded Templates</h1>
     <p>Register an account to use the HelloSign API to create, edit, preview and send signature requests from the embedded templates.</p>
-    <%= link_to ('<span class="glyphicon glyphicon-flash"></span>Register for Account').html_safe, new_user_registration_path, class: "btn btn-lg btn-default" %>
+    <% if user_signed_in? %>
+      <%= link_to ('<span class="glyphicon glyphicon-flash"></span> View your Templates').html_safe, templates_path, class: "btn btn-lg btn-default" %>
+    <% else %>
+      <%= link_to ('<span class="glyphicon glyphicon-flash"></span> Sign Up for an Account').html_safe, new_user_registration_path, class: "btn btn-lg btn-default" %>
+    <% end %>
   </div>
 </div>
 <div class="container">
   <hr>
   <div class="row">
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this example app works</h3>
+      <h3><span class="glyphicon glyphicon-cog"></span> How this example app works</h3>
       <ol>
-        <li>Register an account.</li>
+        <li>Sign Up for an account.</li>
         <li>Create a template.</li>
         <li>Preview & Send a Template.</li>
       </ol>
     </div>
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span>Why HelloSign?</h3>
+      <h3><span class="glyphicon glyphicon-question-sign"></span> Why HelloSign?</h3>
       <ul>
         <li><a href="https://www.hellosign.com/api/documentation/">Clear API Docs with implementation examples.</a></li>
         <li><a href="https://www.hellosign.com/api/pricing">SDKs are available in most languages.</a></li>

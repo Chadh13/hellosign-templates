@@ -19,13 +19,14 @@ class TemplatesController < ApplicationController
 
   # GET /templates/1/edit
   def edit
+    @template.edit_embedded_template
   end
 
   # POST /templates
   # POST /templates.json
   def create
     @template = Template.new(template_params)
-
+    @template.create_embedded_template
     respond_to do |format|
       if @template.save
         format.html { redirect_to @template, notice: 'Template was successfully created.' }
@@ -69,6 +70,6 @@ class TemplatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_params
-      params.require(:template).permit(:title, :subject, :message, :file)
+      params.require(:template).permit(:title, :subject, :message, :file, :edit_url, :embedded_draft, :hellosign_id)
     end
 end

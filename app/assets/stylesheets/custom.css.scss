@@ -121,6 +121,19 @@ p {
 	}
 }
 
+/* buttons */
+
+.buttons {
+  .btn-primary {
+    background: $brand-primary;
+    border-color: $brand-primary;
+    &:hover {
+      background: lighten($brand-primary, 95%);
+      color: $brand-primary;
+    }
+  }
+}
+
 /* footer */
 
 footer {
@@ -239,7 +252,7 @@ input {
 
 /* Signup & Reg Pages */
 
-.signup_page {
+.blue_form {
 	background-color: $brand-primary;
 	padding-top: 150px;
 	h1 {
@@ -257,4 +270,11 @@ input {
       color: $brand-primary;
     }
   }
+  .remember {
+  	display: inline;
+  }
+}
+
+.back_to_templates {
+  color: white;
 }
