@@ -8,7 +8,7 @@ class SignatureRequest < ActiveRecord::Base
       request = client.create_embedded_unclaimed_draft_with_template(
         :test_mode => 1,
         :client_id => ENV['HELLOSIGN_CLIENT_ID'],
-        :template_id => @template.hellosign_id,
+        :template_id => '51d61b1c0b9a7a73b04e245587aa7a59875bd6d7',
         :requester_email_address => email,
         :signing_redirect_url => 'https://hellosign-templates-example.herokuapp.com',
         :requesting_redirect_url => 'https://hellosign-templates-example.herokuapp.com',
