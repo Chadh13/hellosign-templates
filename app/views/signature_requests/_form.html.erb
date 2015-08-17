@@ -13,8 +13,10 @@
 
   <div class="field">
     <%= f.label @template.title %><br>
-    <%= f.text_field :template_id, value: @template.id, disabled: true %>
+    <%= hidden_field_tag :template_id , @template.id %>
   </div>
+
+  <br>
 
   <div class="field">
     <%= f.label "What is the recipient's Name?" %><br>
