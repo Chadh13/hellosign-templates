@@ -1,8 +1,18 @@
 <div class='container fluid buttons'>
 
+<br>
+
   <p id="notice"><%= notice %></p>
 
-  <h1>Listing Templates</h1>
+  <h1>Your Templates</h1>
+
+<h5 class='well'>
+  These are Templates that have been created in your Rails application. They create the data for your database tables and form your API calls that can be found in the Template Model.
+
+  <br><br>
+
+  Click "view" in order to create the Template on HelloSign.
+</h5>
 
   <table class='table'>
     <thead>
@@ -11,7 +21,6 @@
         <th>Subject</th>
         <th>Message</th>
         <th>File</th>
-        <th colspan="2"></th>
       </tr>
     </thead>
 
@@ -23,8 +32,8 @@
           <td><%= template.message %></td>
           <td><%= template.file %></td>
           <td><%= link_to 'View', template %></td>
-          <td><%= link_to 'Edit', edit_template_path(template) %></td>
           <td><%= link_to 'Delete', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'View Signature Requests', template_signature_requests_path(template), class: 'btn btn-md btn-primary' %></td>
         </tr>
       <% end %>
     </tbody>

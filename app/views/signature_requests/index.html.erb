@@ -2,18 +2,30 @@
 
 <div class='container fluid buttons'>
 
-<h1>Listing Signature Requests</h1>
+<br>
 
-<%= link_to 'Back to Template', templates_path, class: 'btn btn-md btn-primary new_template col-md-2 col-md-offset-0' %>
+<%= link_to '< Back to Templates', templates_path, class: 'btn btn-md btn-primary new_template col-md-2 col-md-offset-0' %>
 
-<br><br><br>
+<br><br>
+
+<h1>Signature Requests for <%= @template.title %></h1>
+
+<h5 class='well'>
+  These are Signature Requests that have been created in your Rails application. They create the data for your database tables and form your API calls that can be found in the Signature Request Model.
+
+  <br><br>
+
+  Click "Send Signature Request" to create and send a signature request using the Rails information as the params for the HelloSign API.
+</h5>
+
+<br>
 
 <table class='table'>
   <thead>
     <tr>
-      <th>Template</th>
-      <th>Email</th>
-      <th>Name</th>
+      <th>Subject</th>
+      <th>Recipient Name</th>
+      <th>Recipient Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,12 +33,13 @@
   <tbody>
     <% @signature_requests.each do |signature_request| %>
       <tr>
-        <td><%= signature_request.template %></td>
-        <td><%= signature_request.email %></td>
+        <td><%= signature_request.template.subject %></td>
         <td><%= signature_request.name %></td>
-        <td><%= link_to 'Show', template_signature_request_path(params[:template_id],signature_request) %></td>
+        <td><%= signature_request.email %></td>
+        <td><%= link_to 'View', template_signature_request_path(params[:template_id],signature_request) %></td>
         <td><%= link_to 'Edit', edit_template_signature_request_path(params[:template_id], signature_request) %></td>
-        <td><%= link_to 'Destroy', template_signature_request_path(params[:template_id], signature_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', template_signature_request_path(params[:template_id], signature_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Send Signature Request', hellosign_path(signature_request, {template_id: params[:template_id]}), class: 'btn btn-md btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>

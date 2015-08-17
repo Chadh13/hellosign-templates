@@ -19,5 +19,10 @@
 
 <%= yield %>
 
+<% if Rails.env.development? %>
+<br><br><br><br>
+  <%= debug(params) %>
+<% end %>
+
 </body>
 </html>

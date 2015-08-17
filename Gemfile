@@ -29,6 +29,7 @@ group :development, :test do
   gem 'byebug'
   gem 'dotenv-rails'
   gem 'guard-rspec', require: false
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'spring'
   gem 'spring-commands-rspec'

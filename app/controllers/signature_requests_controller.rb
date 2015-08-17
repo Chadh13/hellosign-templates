@@ -1,6 +1,6 @@
 class SignatureRequestsController < ApplicationController
   before_action :set_signature_request, only: [:show, :edit, :update, :destroy]
-  before_action :set_template, except: [:index]
+  before_action :set_template
 
   # GET /signature_requests
   # GET /signature_requests.json
