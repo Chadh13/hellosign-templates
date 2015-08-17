@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :template_id %><br>
-    <%= f.text_field :template_id, value: params[:template_id] %>
+    <%= f.text_field :template, value: @template.title, disabled: true %>
   </div>
 
   <div class="field">
-    <%= f.label "who are you sending this to?" %><br>
+    <%= f.label "What is the recipient's Name?" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label "What is their email?" %><br>
+    <%= f.label "What is the recipient's email?" %><br>
     <%= f.text_field :email %>
   </div>
   <div class="actions">
