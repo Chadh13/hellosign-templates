@@ -72,4 +72,5 @@ class TemplatesController < ApplicationController
     def template_params
       params.require(:template).permit(:title, :subject, :message, :file, :edit_url, :embedded_draft, :hellosign_id)
     end
+
 end

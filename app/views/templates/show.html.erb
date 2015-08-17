@@ -9,7 +9,9 @@
 
   <br><br>
 
-  If you have created the template on HelloSign, then the button below will read "Edit this Template on HelloSign" otherwise, it will read "Create Template on HelloSign.
+  Use the "Create Template on HelloSign" button to Create your Template using your Rails data and the HelloSign API"
+
+  Use the "Edit this Template on HelloSign" button to Edit your Template using the HelloSign API.
 
   <br><br>
 
@@ -50,11 +52,8 @@
 
   <div class='buttons'>
 
-    <% if @template.hellosign_id.nil? %>
       <%= link_to 'Create Template on HelloSign', hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
-    <% else %>
       <%= link_to 'Edit this Template on HelloSign', edit_hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
-    <% end %>
 
     <%= link_to 'Create a Request with this Template', new_template_signature_request_path(@template), class: 'btn btn-md btn-primary' %> |
     <%= link_to 'View All Signature Requests', template_signature_requests_path(@template), class: 'btn btn-md btn-primary' %>
