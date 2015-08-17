@@ -26,7 +26,6 @@ class TemplatesController < ApplicationController
   # POST /templates.json
   def create
     @template = Template.new(template_params)
-    @template.create_embedded_template
     respond_to do |format|
       if @template.save
         format.html { redirect_to @template, notice: 'Template was successfully created.' }

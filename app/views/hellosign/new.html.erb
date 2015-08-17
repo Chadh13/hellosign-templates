@@ -4,13 +4,13 @@
 
 <script type="text/javascript">
   HelloSign.init("<%= ENV['HELLOSIGN_CLIENT_ID'] %>");
-  HelloSign.open({ url: '<%= @signature_request.claim_url %>' });
+  HelloSign.open({ url: '<%= @template.edit_url %>' });
 </script>
 
 <br><br><br><br><br><br>
 
 <h1>
-<%= link_to 'Back to Signature Requests', template_signature_requests_path(@signature_request), class: 'back_to_templates' %>
+<%= link_to 'Back to the Template Page', template_path(@template), class: 'back_to_templates' %>
 </h1>
 
 </body>

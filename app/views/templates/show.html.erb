@@ -52,7 +52,7 @@
 
   <div class='buttons'>
 
-      <%= link_to 'Create Template on HelloSign', hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
+      <%= link_to 'Create Template on HelloSign', new_hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
       <%= link_to 'Edit this Template on HelloSign', edit_hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
 
     <%= link_to 'Create a Request with this Template', new_template_signature_request_path(@template), class: 'btn btn-md btn-primary' %> |
