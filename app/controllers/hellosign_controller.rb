@@ -1,6 +1,5 @@
 class HellosignController < ApplicationController
 skip_before_action :verify_authenticity_token, only: [:callbacks]
-before_action :set_signature_request
 
   def callbacks
     respond_to do |format|
@@ -9,6 +8,7 @@ before_action :set_signature_request
   end
 
   def new
+    @signature_request = SignatureRequest.find(params[:format])
     @signature_request.send_request
   end
 
@@ -24,10 +24,6 @@ before_action :set_signature_request
 
   def set_template_id
     @template = Template.find(params[:template_id])
-  end
-
-  def set_signature_request
-    @signature_request = SignatureRequest.find(params[:format])
   end
 
 end
