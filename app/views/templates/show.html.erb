@@ -3,6 +3,11 @@
   <p id="notice"><%= notice %></p>
 
   <p>
+    <strong>Template ID:</strong>
+    <%= @template.id %>
+  </p>
+
+  <p>
     <strong>Title:</strong>
     <%= @template.title %>
   </p>
@@ -18,14 +23,23 @@
   </p>
 
   <p>
-    <strong>File:</strong>
-    <%= @template.file %>
+    <strong>Hellosign Template ID:</strong>
+    <%= @template.hellosign_id %>
+  </p>
+
+  <p>
+    <strong>Hellosign Edit URL</strong>
+    <%= @template.edit_url %>
   </p>
 
   <div class='buttons'>
     <%= link_to 'Finish Creating Template', hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
-    <%= link_to 'Edit this Template', edit_hellosign_path(@template), class: 'btn btn-md btn-primary' %> |
-    <%= link_to 'Send Signature Request with this Template', edit_hellosign_path(@template), class: 'btn btn-md btn-primary' %>
+    <%= link_to 'Edit this Template', edit_hellosign_path(@template), class: 'btn btn-md btn-primary' %>
+
+    <br> <br>
+
+    <%= link_to 'View Template Signature Requests', template_signature_requests_path(@template), class: 'btn btn-md btn-primary' %> |
+    <%= link_to 'Create Signature Request with this Template', new_template_signature_request_path(@template), class: 'btn btn-md btn-primary' %>
 
     <br><br>
     <!-- <%= link_to 'Edit this Template', edit_template_path(@template) %> | -->

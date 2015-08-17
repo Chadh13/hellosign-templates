@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Template:</strong>
+  <%= @signature_request.template %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @signature_request.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @signature_request.name %>
+</p>
+
+<%= link_to 'Preview & Send Signature Request', new_hellosign_path(@signature_request), class: 'btn btn-md btn-primary' %> |
+<%= link_to 'Edit', edit_template_signature_request_path(params[:template_id], @signature_request) %> |
+<%= link_to 'Back', template_signature_requests_path %>

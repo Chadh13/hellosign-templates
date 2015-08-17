@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :templates
+
+  resources :templates do
+    resources :signature_requests
+  end
 
   devise_for :users
   resources :users

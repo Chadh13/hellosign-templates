@@ -1,0 +1,33 @@
+<%= form_for([@template, @signature_request], html: {class: 'signup_form well template_form col-md-4 col-md-offset-4'}) do |f| %>
+  <% if @signature_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@signature_request.errors.count, "error") %> prohibited this signature_request from being saved:</h2>
+
+      <ul>
+      <% @signature_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :template_id %><br>
+    <%= f.text_field :template_id, value: params[:template_id] %>
+  </div>
+
+  <div class="field">
+    <%= f.label "who are you sending this to?" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "What is their email?" %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create Signature Request', class: 'btn btn-primary' %>
+  </div>
+
+  <br>
+  <%= link_to 'Back', @template %>
+<% end %>

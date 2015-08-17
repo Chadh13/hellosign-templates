@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815041413) do
+ActiveRecord::Schema.define(version: 20150817024602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "signature_requests", force: :cascade do |t|
+    t.integer  "template_id"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "claim_url"
+    t.string   "signing_redirect"
+    t.string   "hellosign_signature_id"
+  end
+
+  add_index "signature_requests", ["template_id"], name: "index_signature_requests_on_template_id", using: :btree
 
   create_table "templates", force: :cascade do |t|
     t.integer  "user_id"

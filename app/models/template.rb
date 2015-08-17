@@ -1,11 +1,12 @@
 class Template < ActiveRecord::Base
   belongs_to :user
+  has_many :signature_requests
 
   mount_uploader :file, PdfUploader
 
   def create_embedded_template
     client = HelloSign::Client.new :api_key => ENV['HELLOSIGN_API_KEY']
-    request = client.create_embedded_template_draft(
+      request = client.create_embedded_template_draft(
         :test_mode => 1,
         :client_id => ENV['HELLOSIGN_CLIENT_ID'],
         :files => ['public/api-design-ebook.pdf'],

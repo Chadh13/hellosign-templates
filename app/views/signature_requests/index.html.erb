@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class='container fluid buttons'>
+
+<h1>Listing Signature Requests</h1>
+
+<%= link_to 'Back to Template', templates_path, class: 'btn btn-md btn-primary new_template col-md-2 col-md-offset-0' %>
+
+<br><br><br>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Template</th>
+      <th>Email</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @signature_requests.each do |signature_request| %>
+      <tr>
+        <td><%= signature_request.template %></td>
+        <td><%= signature_request.email %></td>
+        <td><%= signature_request.name %></td>
+        <td><%= link_to 'Show', template_signature_request_path(params[:template_id],signature_request) %></td>
+        <td><%= link_to 'Edit', edit_template_signature_request_path(params[:template_id], signature_request) %></td>
+        <td><%= link_to 'Destroy', template_signature_request_path(params[:template_id], signature_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'New Signature request', new_template_signature_request_path, class: 'btn btn-md btn-primary new_template col-md-12 col-md-offset-0' %>
+
+</div>
