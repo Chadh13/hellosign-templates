@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :template_id %><br>
-    <%= f.text_field :template, value: @template.title, disabled: true %>
+    <%= f.label @template.title %><br>
+    <%= f.text_field :template_id, value: @template.id, disabled: true %>
   </div>
 
   <div class="field">

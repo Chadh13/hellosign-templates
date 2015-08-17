@@ -26,10 +26,9 @@ class SignatureRequestsController < ApplicationController
   # POST /signature_requests.json
   def create
     @signature_request = SignatureRequest.new(signature_request_params)
-    @signature_request.send_request
     respond_to do |format|
       if @signature_request.save
-        format.html { redirect_to template_signature_request_path, notice: 'Signature request was successfully created.' }
+        format.html { redirect_to template_signature_requests_path, notice: 'Signature request was successfully created.' }
         format.json { render :show, status: :created, location: @signature_request }
       else
         format.html { render :new }

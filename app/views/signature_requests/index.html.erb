@@ -33,7 +33,7 @@
   <tbody>
     <% @signature_requests.each do |signature_request| %>
       <tr>
-        <td><%= signature_request.template.subject %></td>
+        <td><%= @template.subject %></td>
         <td><%= signature_request.name %></td>
         <td><%= signature_request.email %></td>
         <td><%= link_to 'View', template_signature_request_path(params[:template_id],signature_request) %></td>
