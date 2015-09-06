@@ -5,7 +5,7 @@ class SignatureRequestsController < ApplicationController
   # GET /signature_requests
   # GET /signature_requests.json
   def index
-    @signature_requests = SignatureRequest.all
+    @signature_requests = @template.signature_requests
   end
 
   # GET /signature_requests/1
@@ -15,7 +15,7 @@ class SignatureRequestsController < ApplicationController
 
   # GET /signature_requests/new
   def new
-    @signature_request = SignatureRequest.new
+    @signature_request = @template.signature_requests.new
   end
 
   # GET /signature_requests/1/edit
@@ -25,10 +25,10 @@ class SignatureRequestsController < ApplicationController
   # POST /signature_requests
   # POST /signature_requests.json
   def create
-    @signature_request = SignatureRequest.new(signature_request_params)
+    @signature_request = @template.signature_requests.new(signature_request_params)
     respond_to do |format|
       if @signature_request.save
-        format.html { redirect_to template_signature_requests_path, notice: 'Signature request was successfully created.' }
+        format.html { redirect_to user_template_signature_requests_path, notice: 'Signature request was successfully created.' }
         format.json { render :show, status: :created, location: @signature_request }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SignatureRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @signature_request.update(signature_request_params)
-        format.html { redirect_to @signature_request, notice: 'Signature request was successfully updated.' }
+        format.html { redirect_to [current_user, @template, @signature_request], notice: 'Signature request was successfully updated.' }
         format.json { render :show, status: :ok, location: @signature_request }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SignatureRequestsController < ApplicationController
   def destroy
     @signature_request.destroy
     respond_to do |format|
-      format.html { redirect_to template_signature_requests_path, notice: 'Signature request was successfully destroyed.' }
+      format.html { redirect_to user_template_signature_requests_path, notice: 'Signature request was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

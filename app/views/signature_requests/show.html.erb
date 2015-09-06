@@ -21,8 +21,8 @@
 
   <div class='buttons'>
     <%= link_to 'Preview & Send Signature Request', new_hellosign_path(@signature_request), class: 'btn btn-md btn-primary' %> |
-    <%= link_to 'Edit', edit_template_signature_request_path(params[:template_id], @signature_request) %> |
-    <%= link_to 'Back', template_signature_requests_path %>
+    <%= link_to 'Edit', edit_user_template_signature_request_path(current_user, params[:template_id], @signature_request) %> |
+    <%= link_to 'Back', user_template_signature_requests_path %>
   </div>
 
 </div>

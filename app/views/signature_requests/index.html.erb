@@ -4,7 +4,7 @@
 
 <br>
 
-<%= link_to '< Back to Templates', templates_path, class: 'btn btn-md btn-primary new_template col-md-2 col-md-offset-0' %>
+<%= link_to '< Back to Templates', user_templates_path, class: 'btn btn-md btn-primary new_template col-md-2 col-md-offset-0' %>
 
 <br><br>
 
@@ -16,6 +16,10 @@
   <br><br>
 
   Click "Send Signature Request" to create and send a signature request using the Rails information as the params for the HelloSign API.
+
+  <br><br>
+
+  ** You will NOT be able to send a Signature Request if you have not yet created your Template on HelloSign. That is different than created it on the rails app. **
 </h5>
 
 <br>
@@ -36,10 +40,14 @@
         <td><%= @template.subject %></td>
         <td><%= signature_request.name %></td>
         <td><%= signature_request.email %></td>
-        <td><%= link_to 'View', template_signature_request_path(params[:template_id],signature_request) %></td>
-        <td><%= link_to 'Edit', edit_template_signature_request_path(params[:template_id], signature_request) %></td>
-        <td><%= link_to 'Delete', template_signature_request_path(params[:template_id], signature_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Send Signature Request', hellosign_path(signature_request, {template_id: params[:template_id]}), class: 'btn btn-md btn-primary' %></td>
+        <td><%= link_to 'View', user_template_signature_request_path(current_user, params[:template_id],signature_request) %></td>
+        <td><%= link_to 'Edit', edit_user_template_signature_request_path(current_user, params[:template_id], signature_request) %></td>
+        <td><%= link_to 'Delete', user_template_signature_request_path(current_user, params[:template_id], signature_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @template.hellosign_id.nil? %>
+          <td><%= link_to 'Create your Template on HelloSign', user_template_path(current_user, @template), class: 'btn btn-md btn-primary' %></td>
+        <% else %>
+          <td><%= link_to 'Send Signature Request', hellosign_path(signature_request, {template_id: params[:template_id]}), class: 'btn btn-md btn-primary' %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -48,6 +56,6 @@
 <br>
 
 
-<%= link_to 'New Signature request', new_template_signature_request_path, class: 'btn btn-md btn-primary new_template col-md-12 col-md-offset-0' %>
+<%= link_to 'New Signature request', new_user_template_signature_request_path, class: 'btn btn-md btn-primary new_template col-md-12 col-md-offset-0' %>
 
 </div>

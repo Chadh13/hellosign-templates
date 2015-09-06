@@ -31,14 +31,19 @@
           <td><%= template.subject %></td>
           <td><%= template.message %></td>
           <td><%= template.file %></td>
-          <td><%= link_to 'View', template %></td>
-          <td><%= link_to 'Delete', template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'View Signature Requests', template_signature_requests_path(template), class: 'btn btn-md btn-primary' %></td>
+          <td><%= link_to 'View', user_template_path(current_user, template) %></td>
+          <td><%= link_to 'Delete', user_template_path(current_user, template), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if template.hellosign_id.nil? %>
+            <td><%= link_to 'Create your Template on HelloSign', user_template_path(current_user, template), class: 'btn btn-md btn-primary' %></td>
+          <% else %>
+            <td><%= link_to 'Edit your Template on HelloSign', user_template_path(current_user, @template), class: 'btn btn-md btn-primary' %></td>
+            <td><%= link_to 'View Signature Requests', user_template_signature_requests_path(current_user, template), class: 'btn btn-md btn-primary' %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-    <%= link_to 'New Template', new_template_path, class: 'btn btn-md btn-primary new_template col-md-12 col-md-offset-0' %>
+    <%= link_to 'New Template', new_user_template_path, class: 'btn btn-md btn-primary new_template col-md-12 col-md-offset-0' %>
 
 </div>

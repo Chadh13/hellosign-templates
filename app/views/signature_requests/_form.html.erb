@@ -1,4 +1,4 @@
-<%= form_for([@template, @signature_request], html: {class: 'signup_form well template_form col-md-4 col-md-offset-4'}) do |f| %>
+<%= form_for([current_user, @template, @signature_request], html: {class: 'signup_form well template_form col-md-4 col-md-offset-4'}) do |f| %>
   <% if @signature_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@signature_request.errors.count, "error") %> prohibited this signature_request from being saved:</h2>
@@ -31,5 +31,5 @@
   </div>
 
   <br>
-  <%= link_to 'Back', @template %>
+  <%= link_to 'Back', user_template_signature_requests_path(current_user, @template) %>
 <% end %>
